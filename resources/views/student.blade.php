@@ -46,13 +46,18 @@
         </div>
         <button type ="submit" class="submit">OK </button>
         <div class="display-infor">
-            @if(isset($user))
-            <p>Name: {{$user['name']}}</p>
-            <p>Age: {{$user['age']}}</p>
-            <p>Date: {{$user['date']}}</p>
-            <p>Phone: {{$user['phone']}}</p>
-            <p>Website: {{$user['phone']}}</p>
-            <p>Address: {{$user['address']}}</p>
+            @if(session('users'))
+                @foreach(session('users') as $user)
+                    <div class="user-info">
+                        <p>Name: {{ $user['name'] }}</p>
+                        <p>Age: {{ $user['age'] }}</p>
+                        <p>Date: {{ $user['date'] }}</p>
+                        <p>Phone: {{ $user['phone'] }}</p>
+                        <p>Website: {{ $user['web'] }}</p>
+                        <p>Address: {{ $user['address'] }}</p>
+                        <hr>
+                    </div>
+                @endforeach
             @endif
         </div>
     </form>
