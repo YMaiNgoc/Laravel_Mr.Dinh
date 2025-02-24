@@ -4,7 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SignupController;
-use App\Http\Controllers\CovidController;
+use App\Http\Controllers\CovidController;				
+use App\Http\Controllers\ProductController;			
 Route::get('/tong', function () {
     return view('tong');
 });
@@ -36,3 +37,4 @@ Route::get('/tong', function () {
  Route::get('/student', [signupController::class, 'index']); 
 Route::post('/student', [signupController::class, 'displayInfor']);
 Route::get('/covid', [CovidController::class, 'getData']);
+Route::resource('products', ProductController::class);
