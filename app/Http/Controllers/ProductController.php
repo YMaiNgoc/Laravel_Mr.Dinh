@@ -1,51 +1,68 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Requests\StoreProductRequest;
-use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Http;			
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     private $apiUrl = "https://656ca88ee1e03bfd572e9c16.mockapi.io/products";	
-    public function index(){
+
+    public function index()
+    {
         $response = Http::get($this->apiUrl);
         $products = $response->json();
-        return view('products.index',compact('products'));
+        return view('products.index', compact('products'));
     }	
-    public function create(){
-        return view ('products.create');
-    }	
-    public function store(StoreProductRequest $request){
-        $response = Http::post($this->apiUrl, $request->validated());
-        if ($response->successful()){
-            return redirect()->route('products.index')->with('success', 'Sản phẩm đã được tạo!');
 
-        }
-        return back()->withErrors(['message'=>'Lỗi khi tạo sản phẩm']);
+    public function create()
+    {
+        return view('products.create');
     }	
-    public function edit($id){
+
+    public function store(StoreProductRequest $request)
+    {
+        $data = $request->only(['name', 'avatar']); 
+        $response = Http::post($this->apiUrl, $data);
+        
+        if ($response->successful()) {
+            return redirect()->route('products.index')->with('success', 'Sản phẩm đã được tạo!');
+        }
+
+        return back()->withErrors(['message' => 'Lỗi khi tạo sản phẩm']);
+    }	
+
+    public function edit($id)
+    {
         $response = Http::get("$this->apiUrl/$id");
-        if ($response->successful()){
-            $product = $response-> json();
-            return view ('products.edit', compact('product'));
+        if ($response->successful()) {
+            $product = $response->json();
+            return view('products.edit', compact('product'));
         }
-        return redirect()->route('products.index')->withErrors(['message'=>'Không tìm thấy sản phẩm']);
+        return redirect()->route('products.index')->withErrors(['message' => 'Không tìm thấy sản phẩm']);
     }	
-    public function update(StoreProductRequest $request, $id){
-        $response = Http::put("$this->apiUrl/$id", $request->validated());
-        if ($response->successful()){
+
+    public function update(StoreProductRequest $request, $id)
+    {
+        $data = $request->only(['name', 'avatar']); // Chỉ lấy name và avatar
+        $response = Http::put("$this->apiUrl/$id", $data);
+        
+        if ($response->successful()) {
             return redirect()->route('products.index')->with('success', 'Sản phẩm đã được cập nhật');
         }
-        return back()->withErrors(['message'=>'Lỗi khi cập nhật sản phẩm']);
+
+        return back()->withErrors(['message' => 'Lỗi khi cập nhật sản phẩm']);
     }	
-    public function destroy($id){							
+
+    public function destroy($id)
+    {							
         $response = Http::delete("$this->apiUrl/$id");							
         if ($response->successful()) {							
             return redirect()->route('products.index')->with('success', 'Sản phẩm đã được xóa!');							
         }							
         return back()->withErrors(['message' => 'Lỗi khi xóa sản phẩm']);							
-        }							
-						
+    }			
+    			
 }
