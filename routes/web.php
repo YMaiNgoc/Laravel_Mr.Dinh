@@ -4,7 +4,24 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SignupController;
+use App\Http\Controllers\CovidController;				
+use App\Http\Controllers\ProductController;		
+use App\Http\Controllers\PageController;	
 
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+
+Route::get('/productTable', function () {
+    Schema::create('products', function (Blueprint $table) {
+        $table->id(); 
+        $table->string('name'); 
+        $table->integer('price'); 
+        $table->string('image'); 
+        $table->timestamps(); 
+    });
+
+    return 'Bảng products đã được tạo!';
+});	
 Route::get('/tong', function () {
     return view('tong');
 });
@@ -35,3 +52,15 @@ Route::get('/tong', function () {
  
  Route::get('/student', [signupController::class, 'index']); 
 Route::post('/student', [signupController::class, 'displayInfor']);
+Route::get('/covid', [CovidController::class, 'getData']);
+Route::resource('products', ProductController::class);
+//// buôi 3
+Route::get('/', function(){
+
+    return-view('welcome');
+    
+    });
+    Route::get('/baitap4', [PageController::class, 'getIndex']);
+    ///////
+    use App\Http\Controllers\DatabaseController;
+    Route::get('/create-tables', [DatabaseController::class, 'createTables']);

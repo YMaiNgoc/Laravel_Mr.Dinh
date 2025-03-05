@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Input, File;
 use Request;
 use App\Http\Requests\RuleStudent;
+use Illuminate\Support\Facades\Session;
 class signupController extends Controller
 {
     public function index()
@@ -21,15 +22,6 @@ class signupController extends Controller
 
     public function displayInfor(RuleStudent $request)
     {
-        // $user =[
-        //     'name'=>$name =$Request -> input("name"),
-        //     'age'=>$age =$Request -> input("age"),
-        //     'date'=>$date =$Request -> input("date"),
-        //     'phone'=>$phone =$Request -> input("phone"),
-        //     'web'=>$web =$Request -> input("web"),
-        //     'address'=>$address =$Request -> input("address"),
-        // ];
-        // return view('student')->with('user', $user);
         $user = [
             'name' => $request->input("name"),
             'age' => $request->input("age"),
@@ -38,12 +30,16 @@ class signupController extends Controller
             'web' => $request->input("web"),
             'address' => $request->input("address"),
         ];
+        $users = Session::get('users', []);
+
+        // Thêm dữ liệu mới vào danh sách
+        $users[] = $request->all();
+    
+        // Lưu lại danh sách vào session
+        Session::put('users', $users);
         return view('student')->with('user', $user);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         //
