@@ -1,117 +1,110 @@
-<header id="header"><!--header-->
-		<div class="header_top"><!--header_top-->
+<div id="header">
+		<div class="header-top">
 			<div class="container">
-				<div class="row">
-					<div class="col-sm-6">
-						<div class="contactinfo">
-							<ul class="nav nav-pills">
-								<li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-6">
-						<div class="social-icons pull-right">
-							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-							</ul>
-						</div>
-					</div>
+				<div class="pull-left auto-width-left">
+					<ul class="top-menu menu-beta l-inline">
+						<li><a href=""><i class="fa fa-home"></i> 90-92 Lê Thị Riêng, Bến Thành, Quận 1</a></li>
+						<li><a href=""><i class="fa fa-phone"></i> 0163 296 7751</a></li>
+					</ul>
 				</div>
-			</div>
-		</div><!--/header_top-->
-		
-		<div class="header-middle"><!--header-middle-->
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-4">
-						<div class="logo pull-left">
-							<a href="index.html"><img src="images/home/logo.png" alt="" /></a>
-						</div>
-						<div class="btn-group pull-right">
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									USA
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">Canada</a></li>
-									<li><a href="#">UK</a></li>
-								</ul>
+				<div class="pull-right auto-width-right">
+					<ul class="top-details menu-beta l-inline">
+						<li><a href="#"><i class="fa fa-user"></i>Tài khoản</a></li>
+						{{-- <li><a href="{{ route('dangky') }}">Đăng kí</a></li>
+						<li><a href="{{ route('dangnhap') }}">Đăng nhập</a></li> --}}
+						<li><a >Đăng kí</a></li>
+						<li><a href="#">Đăng nhập</a></li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div> <!-- .container -->
+		</div> <!-- .header-top -->
+		<div class="header-body">
+			<div class="container beta-relative">
+				<div class="pull-left">
+					<a href="#" id="logo"><img src="source/assets/dest/images/logo-cake.png" width="200px" alt=""></a>
+				</div>
+				<div class="pull-right beta-components space-left ov">
+					<div class="space10">&nbsp;</div>
+					<div class="beta-comp">
+						<form role="search" method="get" id="searchform" action="/">
+					        <input type="text" value="" name="s" id="s" placeholder="Nhập từ khóa..." />
+					        <button class="fa fa-search" type="submit" id="searchsubmit"></button>
+						</form>
+					</div>
+
+					<div class="beta-comp">
+						<div class="cart">
+							<div class="beta-select"><i class="fa fa-shopping-cart"></i> Giỏ hàng (Trống) <i class="fa fa-chevron-down"></i></div>
+							<div class="beta-dropdown cart-body">
+								<div class="cart-item">
+									<div class="media">
+										<a class="pull-left" href="#"><img src="source/assets/dest/images/products/cart/1.png" alt=""></a>
+										<div class="media-body">
+											<span class="cart-item-title">Sample Woman Top</span>
+											<span class="cart-item-options">Size: XS; Colar: Navy</span>
+											<span class="cart-item-amount">1*<span>$49.50</span></span>
+										</div>
+									</div>
+								</div>
+
+								<div class="cart-item">
+									<div class="media">
+										<a class="pull-left" href="#"><img src="source/assets/dest/images/products/cart/2.png" alt=""></a>
+										<div class="media-body">
+											<span class="cart-item-title">Sample Woman Top</span>
+											<span class="cart-item-options">Size: XS; Colar: Navy</span>
+											<span class="cart-item-amount">1*<span>$49.50</span></span>
+										</div>
+									</div>
+								</div>
+
+								<div class="cart-item">
+									<div class="media">
+										<a class="pull-left" href="#"><img src="source/assets/dest/images/products/cart/3.png" alt=""></a>
+										<div class="media-body">
+											<span class="cart-item-title">Sample Woman Top</span>
+											<span class="cart-item-options">Size: XS; Colar: Navy</span>
+											<span class="cart-item-amount">1*<span>$49.50</span></span>
+										</div>
+									</div>
+								</div>
+
+								<div class="cart-caption">
+									<div class="cart-total text-right">Tổng tiền: <span class="cart-total-value">$34.55</span></div>
+									<div class="clearfix"></div>
+
+									<div class="center">
+										<div class="space10">&nbsp;</div>
+										<a href="#" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>
+									</div>
+								</div>
 							</div>
-							
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									DOLLAR
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">Canadian Dollar</a></li>
-									<li><a href="#">Pound</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-8">
-						<div class="shop-menu pull-right">
-							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
-								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
-							</ul>
-						</div>
+						</div> <!-- .cart -->
 					</div>
 				</div>
-			</div>
-		</div><!--/header-middle-->
-	
-		<div class="header-bottom"><!--header-bottom-->
+				<div class="clearfix"></div>
+			</div> <!-- .container -->
+		</div> <!-- .header-body -->
+		<div class="header-bottom" style="background-color: #0277b8;">
 			<div class="container">
-				<div class="row">
-					<div class="col-sm-9">
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-						</div>
-						<div class="mainmenu pull-left">
-							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="index.html" class="active">Home</a></li>
-								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Products</a></li>
-										<li><a href="product-details.html">Product Details</a></li> 
-										<li><a href="checkout.html">Checkout</a></li> 
-										<li><a href="cart.html">Cart</a></li> 
-										<li><a href="login.html">Login</a></li> 
-                                    </ul>
-                                </li> 
-								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.html">Blog List</a></li>
-										<li><a href="blog-single.html">Blog Single</a></li>
-                                    </ul>
-                                </li> 
-								<li><a href="404.html">404</a></li>
-								<li><a href="contact-us.html">Contact</a></li>
+				<a class="visible-xs beta-menu-toggle pull-right" href="#"><span class='beta-menu-toggle-text'>Menu</span> <i class="fa fa-bars"></i></a>
+				<div class="visible-xs clearfix"></div>
+				<nav class="main-menu">
+					<ul class="l-inline ov">
+						<li><a href="#">Trang chủ</a></li>
+						<li><a href="# }}">Sản phẩm</a>
+							<ul class="sub-menu">
+								<li><a href="#">Sản phẩm 1</a></li>
+								<li><a href="#">Sản phẩm 2</a></li>
+								<li><a href="#">Sản phẩm 3</a></li>
 							</ul>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="search_box pull-right">
-							<input type="text" placeholder="Search"/>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div><!--/header-bottom-->
-	</header><!--/header-->
+						</li>
+						<li><a href="#">Giới thiệu</a></li>
+						<li><a href="#">Liên hệ</a></li>
+					</ul>
+					<div class="clearfix"></div>
+				</nav>
+			</div> <!-- .container -->
+		</div> <!-- .header-bottom -->
+	</div> <!-- #header -->
