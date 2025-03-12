@@ -50,17 +50,30 @@ Route::get('/tong', function () {
 //  Route::get('/index', [postController::class,'index']);
 //  Route::get('/create', [postController::class,'create']);
  
- Route::get('/student', [signupController::class, 'index']); 
-Route::post('/student', [signupController::class, 'displayInfor']);
-Route::get('/covid', [CovidController::class, 'getData']);
-Route::resource('products', ProductController::class);
-//// buôi 3
-Route::get('/', function(){
+//  Route::get('/student', [signupController::class, 'index']); 
+// Route::post('/student', [signupController::class, 'displayInfor']);
+// Route::get('/covid', [CovidController::class, 'getData']);
+// Route::resource('products', ProductController::class);
+// //// buôi 3
+// Route::get('/', function(){
 
-    return-view('welcome');
+//     return-view('welcome');
     
-    });
-    Route::get('/baitap4', [PageController::class, 'getIndex']);
-    ///////
-    use App\Http\Controllers\DatabaseController;
-    Route::get('/create-tables', [DatabaseController::class, 'createTables']);
+//     });
+//     Route::get('/baitap4', [PageController::class, 'getIndex']);
+//     ///////
+//     use App\Http\Controllers\DatabaseController;
+//     Route::get('/create-tables', [DatabaseController::class, 'createTables']);
+
+    // Route::get('/trangchu', [PageController::class, 'getIndex']);
+    
+Route::get('index', [PageController::class, 'getIndex'])->name('trang-chu');
+Route::get('/', [PageController::class, 'getIndex'])->name('trang-chu');
+// Route::get('loai-san-pham', [PageController::class, 'getLoaiSp'])->name('loaisanpham');
+// Route::get('/sanpham/{id}', [PageController::class, 'getChiTietSanPham'])->name('chitietsanpham');        
+// Route::get('lien-he', [PageController::class, 'getLienHe']) ->name('lienhe');             
+// Route::get('about', [PageController::class, 'getAbout']) ->name('about');             
+// Route::get('dang-ky', [PageController::class, 'getDangKy']) ->name('dangky');             
+// Route::get('dang-nhap', [PageController::class, 'getDangNhap']) ->name('dangnhap');             
+// Route::get('thanh-toan', [PageController::class, 'getThanhToan']) ->name('thanhtoan');   
+// Route::get('/san-pham/{id}', 'ProductController@show')->name('chitietsanpham');
