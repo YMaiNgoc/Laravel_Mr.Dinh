@@ -33,12 +33,10 @@ Route::get('/tong', function () {
 //     return view('tong', ['sum' => $a + $b]);
 // });
 
-
 // Route::group(['prefix' => 'tutorial'], function () {
 //     Route::get('/aws', function () {
 //         echo "aws tutorial";
 //     });
-
 //     Route::get('/jira', function () {
 //         echo "jira tutorial";
 //     });
@@ -56,24 +54,29 @@ Route::get('/tong', function () {
 // Route::resource('products', ProductController::class);
 // //// buôi 3
 // Route::get('/', function(){
-
 //     return-view('welcome');
-    
 //     });
 //     Route::get('/baitap4', [PageController::class, 'getIndex']);
 //     ///////
 //     use App\Http\Controllers\DatabaseController;
 //     Route::get('/create-tables', [DatabaseController::class, 'createTables']);
-
     // Route::get('/trangchu', [PageController::class, 'getIndex']);
     
-Route::get('index', [PageController::class, 'getIndex'])->name('trang-chu');
+// Route::get('index', [PageController::class, 'getIndex'])->name('trang-chu');
 Route::get('/', [PageController::class, 'getIndex'])->name('trang-chu');
-// Route::get('loai-san-pham', [PageController::class, 'getLoaiSp'])->name('loaisanpham');
-// Route::get('/sanpham/{id}', [PageController::class, 'getChiTietSanPham'])->name('chitietsanpham');        
-// Route::get('lien-he', [PageController::class, 'getLienHe']) ->name('lienhe');             
-// Route::get('about', [PageController::class, 'getAbout']) ->name('about');             
-// Route::get('dang-ky', [PageController::class, 'getDangKy']) ->name('dangky');             
-// Route::get('dang-nhap', [PageController::class, 'getDangNhap']) ->name('dangnhap');             
-// Route::get('thanh-toan', [PageController::class, 'getThanhToan']) ->name('thanhtoan');   
-// Route::get('/san-pham/{id}', 'ProductController@show')->name('chitietsanpham');
+Route::get('/type/{id}', [PageController::class, 'getLoaiSp']);		
+Route::get('/chitiet/{id}', [PageController::class, 'getChiTietSanPham']);									
+// Route::get('/admin', [PageController::class, 'getIndexAdmin']);		
+Route::get('/admin', [PageController::class, 'getIndexAdmin'])->name('admin.index');
+Route::get('/admin-add-form', [PageController::class, 'getAdminAdd'])->name('add-product');																	
+Route::post('/admin-add-form', [PageController::class, 'postAdminAdd']);												
+Route::get('/admin-edit-form/{id}', [PageController::class, 'getAdminEdit'])->name('admin.edit');
+Route::post('/admin-edit', [PageController::class, 'postAdminEdit']);
+Route::post('/admin-delete/{id}', [PageController::class, 'postAdminDelete']);	
+													
+Route::get('/about', function () {
+    return view('page.about');
+})->name('about');
+Route::get('/lienhe', function () {
+    return view('page.lienhe');
+})->name('lienhe');
