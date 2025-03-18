@@ -10,8 +10,6 @@
 				<div class="pull-right auto-width-right">
 					<ul class="top-details menu-beta l-inline">
 						<li><a href="#"><i class="fa fa-user"></i>Tài khoản</a></li>
-						{{-- <li><a href="{{ route('dangky') }}">Đăng kí</a></li>
-						<li><a href="{{ route('dangnhap') }}">Đăng nhập</a></li> --}}
 						<li><a >Đăng kí</a></li>
 						<li><a href="#">Đăng nhập</a></li>
 					</ul>
@@ -93,15 +91,22 @@
 				<nav class="main-menu">
 					<ul class="l-inline ov">
 						<li><a href="#">Trang chủ</a></li>
-						<li><a href="# }}">Sản phẩm</a>
+						<li>
+							<a href="/type/1">Loại sản phẩm</a>
 							<ul class="sub-menu">
+								@foreach($loai_sp as $loai)
+									<li><a href="/type/{{ $loai->id }}">{{ $loai->name }}</a></li>
+								@endforeach
+							</ul>
+						</li>
+							{{-- <ul class="sub-menu">
 								<li><a href="#">Sản phẩm 1</a></li>
 								<li><a href="#">Sản phẩm 2</a></li>
 								<li><a href="#">Sản phẩm 3</a></li>
-							</ul>
+							</ul> --}}
 						</li>
-						<li><a href="#">Giới thiệu</a></li>
-						<li><a href="#">Liên hệ</a></li>
+						<li><a href="about">Giới thiệu</a></li>
+						<li><a href="lienhe">Liên hệ</a></li>
 					</ul>
 					<div class="clearfix"></div>
 				</nav>
