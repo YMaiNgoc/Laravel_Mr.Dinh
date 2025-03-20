@@ -68,15 +68,17 @@ Route::get('/type/{id}', [PageController::class, 'getLoaiSp']);
 Route::get('/chitiet/{id}', [PageController::class, 'getChiTietSanPham']);									
 // Route::get('/admin', [PageController::class, 'getIndexAdmin']);		
 Route::get('/admin', [PageController::class, 'getIndexAdmin'])->name('admin.index');
+
 Route::get('/admin-add-form', [PageController::class, 'getAdminAdd'])->name('add-product');																	
-Route::post('/admin-add-form', [PageController::class, 'postAdminAdd']);												
+Route::post('/admin-add-form', [PageController::class, 'postAdminAdd']);
+
 Route::get('/admin-edit-form/{id}', [PageController::class, 'getAdminEdit'])->name('admin.edit');
 Route::post('/admin-edit', [PageController::class, 'postAdminEdit']);
 Route::post('/admin-delete/{id}', [PageController::class, 'postAdminDelete']);	
-													
-Route::get('/about', function () {
-    return view('page.about');
-})->name('about');
-Route::get('/lienhe', function () {
-    return view('page.lienhe');
-})->name('lienhe');
+
+Route::get('/search', [PageController::class, 'getSearch'])->name('search');
+Route::get('/about',[PageController::class, 'getAbout']);												
+Route::get('/lienhe',[PageController::class, 'getLienHe']);	
+
+Route::get('/dangky',[PageController::class, 'getDangKy']);
+// Route::post('/dangky', [PageController::class, 'postDangKy']);	
