@@ -9,11 +9,11 @@ use App\Models\ProductType;
 use App\Models\BillDetail;
 class PageController extends Controller
 {
-    public function getIndex()
+   public function getIndex()
     {
         $slide = Slide::all();
-        $newProducts = Product::where('new', 1)->get(); // Lấy sản phẩm mới
-        $topProducts = Product::orderBy('unit_price', 'desc')->take(10)->get(); // Lấy 10 sản phẩm có giá cao nhất
+        $newProducts = Product::where('new', 1)->paginate(8); 
+        $topProducts = Product::orderBy('unit_price', 'desc')->paginate(10); 
         return view('page.trangchu', compact('slide', 'newProducts', 'topProducts'));
     }
 				
@@ -22,7 +22,6 @@ class PageController extends Controller
         $sp_theoloai = Product::where('id_type', $type)->get();
         $type_product = ProductType::all();
         $sp_khac = Product::where('id_type', '<>', $type)->paginate(3);
-    
         return view('page.loai_sanpham', compact('sp_theoloai', 'type_product', 'sp_khac'));
     }
                 
@@ -33,25 +32,9 @@ class PageController extends Controller
         $newProducts = $sanpham->newProducts();
         return view('page.chitiet_sanpham', compact('sanpham', 'relatedProducts', 'newProducts'));
     }           
-    public function getLienHe(){					
-    	return view('page.lienhe');				
-    }					
-    public function getAbout(){					
-    	return view('page.about');				
-    }					
-    public function getDangKy(){					
-    	return view('page.dangky');				
-    }					
-    public function getDangNhap(){					
-    	return view('page.dangnhap');				
-    }					
-    public function getThanhToan(){					
-    	return view('page.thanhtoan');				
-    }	
     
     public function getIndexAdmin()
     {
-    
         $products = Product::all();
         return view('pageadmin.admin')->with(['products'=>$products, 'sumSold' => count(BillDetail::all())]);
     }
@@ -121,5 +104,26 @@ class PageController extends Controller
         return $this -> getIndexAdmin();
     }
 
+    public function getSearch(Request $request) {
+        $query = $request->input('query');
+        $products = Product::where('name', 'LIKE', '%' . $query . '%')->get();
+        return view('page.search_results', compact('products', 'query'));
+    }
+
+    public function getLienHe(){					
+    	return view('page.lienhe');				
+    }					
+    public function getAbout(){					
+    	return view('page.about');				
+    }					
+    public function getDangKy(){					
+    	return view('page.dangky');				
+    }					
+    public function getDangNhap(){					
+    	return view('page.dangnhap');				
+    }					
+    public function getThanhToan(){					
+    	return view('page.thanhtoan');				
+    }	
 }					
 					
